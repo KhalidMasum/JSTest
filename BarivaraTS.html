@@ -1,0 +1,64 @@
+
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+<div>
+<input type="checkbox" id="tamzid">
+<label for="tamzid">Tamzid</label>
+<input type="checkbox" id="pranto">
+<label for="pranto">Pranto</label>
+<input type="checkbox" id="labnan">
+<label for="Labnan">Labnan</label> <br>
+<input type="number" id="electricity"><br>
+<input type="checkbox" id="stair">
+<label for="stair">Stair Cleaning</label><br>
+<input type="checkbox" id="anti">
+<label for="anti">Home Cleaning</label><br>
+     <input type="checkbox" id="gas">
+<label for="gas">Gas</label><br>
+    <input type="checkbox" id="bkash">
+<label for="bkash">Bkashed</label>
+    
+    
+    <br>
+    <button id="calculate" onclick="calculate()">Calculate </button>
+<br>
+<h3 id="result"></h3><br>
+<script>
+    document.getElementById("electricity").defaultValue = "0";
+    function calculate(){
+        var sum = 0;
+        var person;
+
+        var electricityBill = parseInt(document.getElementById("electricity").value);
+     
+     if(document.getElementById("tamzid").checked){  sum += 2000; sum += electricityBill/3;
+sum+= getOthers();
+}
+     if(document.getElementById("pranto").checked) {sum += 3500;sum += electricityBill/3;
+sum+= getOthers();
+
+}
+     if(document.getElementById("labnan").checked){sum += 3500;sum += electricityBill/3;
+sum += getOthers();
+}
+
+     
+     if(document.getElementById("bkash").checked) sum = sum + sum*18.5/1000;
+      
+     document.getElementById("result").innerHTML = sum;
+     
+
+        
+    }
+function getOthers(){
+var others = 0;
+if(document.getElementById("stair").checked) others+= 100/3;
+     if(document.getElementById("anti").checked) others += 200;
+     if(document.getElementById("gas").checked) others += 200/3;
+     return others;
+}
+</script>
+
+    </div>
+
+</body></html>
